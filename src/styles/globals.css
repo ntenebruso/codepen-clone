@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.editor-panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.editor-panels .editor-panel:not(:last-child) {
+    border-right: 5px solid #000;
+    resize: horizontal;
+    overflow: auto;
+}
+
+.editor-panels .editor-panel .title {
+    padding: 10px 5px;
+    background: #3d3d3d;
+    color: #fff;
+    font-size: 20px;
+}
