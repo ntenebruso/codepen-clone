@@ -1,23 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --accent-color: #202020;
+    --main-color: #3d3d3d;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+button {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.editor-header {
+    background: var(--accent-color);
+    padding: 0 75px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 50px;
+}
+
+.editor-header .btns {
+    height: 100%;
+}
+
+.editor-header button {
+    height: 100%;
+    font-size: 17px;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0 25px;
+}
+
+.editor-header button:hover {
+    background: #000;
+}
+
 .editor-panels {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: 35vh;
+    position: relative;
+    border-bottom: 5px solid var(--accent-color);
 }
 
-.editor-panels .editor-panel:not(:last-child) {
-    border-right: 5px solid #000;
-    resize: horizontal;
-    overflow: auto;
+.editor-panels .editor-panel {
+    height: 100%;
+    position: relative;
+    overflow: scroll;
+}
+
+.codemirror-wrapper {
+    position: relative;
+    height: calc(100% - 50px);
 }
 
 .editor-panels .editor-panel .title {
-    padding: 10px 5px;
-    background: #3d3d3d;
+    height: 50px;
+    background: var(--main-color);
     color: #fff;
     font-size: 20px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
+
+.editor-panels .editor-panel:not(:last-child) {
+    border-right: 5px solid var(--accent-color);
+}
+
+.output {
+    height: 50vh;
+    position: relative;
+}
+
+.console {
+    background: var(--accent-color);
+    display: block;
+    width: 100%;
+    color: #fff;
+    height: 15vh;
+    overflow-y: scroll;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.console div {
+    padding: 10px;
+    font-size: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.console div.error {
+    background: #ff000070;
+}
+
+.console div:last-child {
+    border-bottom: 1px solid #ccc;
 }

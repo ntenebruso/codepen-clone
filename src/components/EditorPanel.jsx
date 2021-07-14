@@ -4,6 +4,8 @@ import "codemirror/theme/material.css";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
+import "codemirror/addon/edit/closebrackets";
+import "codemirror/addon/edit/closetag";
 
 export default function EditorPanel({ value, language, displayName, onChange }) {
     function handleChange(editor, data, value) {
@@ -21,8 +23,16 @@ export default function EditorPanel({ value, language, displayName, onChange }) 
                     lint: true,
                     mode: language,
                     theme: "material",
-                    lineNumbers: true
+                    lineNumbers: true,
+                    indentUnit: 2,
+                    tabSize: 2,
+                    smartIndent: true,
+                    indentWithTabs: false,
+                    autocorrect: true,
+                    autoCloseBrackets: true,
+                    autoCloseTags: true
                 }}
+                className="codemirror-wrapper"
             />
         </div>
     )
